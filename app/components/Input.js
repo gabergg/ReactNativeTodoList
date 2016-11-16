@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react'
-import { TextInput, StyleSheet } from 'react-native'
+import { TextInput, View, StyleSheet } from 'react-native'
 import { connect } from 'react-redux'
 import { Actions } from 'react-native-router-flux'
 
@@ -14,7 +14,7 @@ export default class Input extends Component {
 
   static propTypes = {
     onSubmit: PropTypes.func,
-    placeHolder: PropTypes.string,
+    placeholder: PropTypes.string,
   }
 
   state = {
@@ -36,13 +36,13 @@ export default class Input extends Component {
   }
 
   render() {
-    const {onSubmit, placeHolder} = this.props
+    const {onSubmit, placeholder} = this.props
     const {text} = this.state
 
     return (
       <TextInput
         style={styles.input}
-        placeholder={placeHolder}
+        placeholder={placeholder}
         value={text}
         onChangeText={this.onChangeText}
         onSubmitEditing={this.onSubmitEditing}

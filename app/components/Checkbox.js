@@ -3,11 +3,15 @@ import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
 
 const styles = StyleSheet.create({
   box: {
-    width: 25,
-    borderWidth: 1,
+    height: 20,
+    width: 20,
+    borderWidth: 2,
     borderColor: 'black',
-    justifyContent: 'center',
-    alignItems: 'center',
+  },
+  inner: {
+    flex: 1,
+    margin: 2,
+    backgroundColor: 'rgba(0,0,0,0.8)',
   },
 })
 
@@ -24,7 +28,7 @@ export default class Checkbox extends Component {
     return (
       <TouchableOpacity onPress={onToggle}>
         <View style={styles.box}>
-          <Text> {isChecked ? 'x' : ''} </Text>
+          { isChecked && <View style={styles.inner}/> }
         </View>
       </TouchableOpacity>
     )

@@ -12,10 +12,10 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
   },
-  input: {
-    height: 30,
-    width: 150,
-  }
+  divider: {
+    height: 1,
+    backgroundColor: 'whitesmoke',
+  },
 })
 
 const mapStateToProps = (state) => ({
@@ -50,7 +50,11 @@ class App extends Component {
     return (
       <View style={styles.container}>
         <Title> Todo List </Title>
-        <Input placeHolder={'Enter an item!'} onSubmit={this.addItem} />
+        <Input
+          placeholder={'Enter an item!'}
+          onSubmit={this.addItem}
+        />
+        <View style={styles.divider}/>
         <List
           items={items}
           onRemoveItem={this.removeItem}

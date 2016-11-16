@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react'
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
+import { View, Text, ScrollView, StyleSheet, TouchableOpacity } from 'react-native'
 
 import Checkbox from './Checkbox'
 
@@ -8,21 +8,22 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   item: {
-    backgroundColor: 'whitesmoke',
-    marginBottom: 5,
     padding: 15,
     flexDirection: 'row',
     justifyContent: 'space-between',
+    alignItems: 'center',
+    borderBottomWidth: 1,
+    borderBottomColor: 'whitesmoke',
   },
   rightSection: {
     flexDirection: 'row',
   },
   remove: {
     marginLeft: 10,
-    color: 'blue',
+    color: '#FF4500',
   },
   completed: {
-    backgroundColor: 'wheat',
+    backgroundColor: 'whitesmoke',
   },
 })
 
@@ -58,9 +59,9 @@ export default class List extends Component {
     const {items} = this.props
 
     return (
-      <View style={styles.container}>
+      <ScrollView style={styles.container}>
         {items.map(this.renderItem)}
-      </View>
+      </ScrollView>
     )
   }
 }
