@@ -2,6 +2,7 @@ const types = {
   ADD_ITEM: 'ADD_ITEM',
   REMOVE_ITEM: 'REMOVE_ITEM',
   TOGGLE_ITEM_COMPLETED: 'TOGGLE_ITEM_COMPLETED',
+  REMOVE_COMPLETED: 'REMOVE_COMPLETED',
 }
 
 export const actionCreators = {
@@ -13,6 +14,9 @@ export const actionCreators = {
   },
   toggleItemCompleted: (item) => {
     return {type: types.TOGGLE_ITEM_COMPLETED, payload: item}
+  },
+  removeCompleted: (item) => {
+    return {type: types.REMOVE_COMPLETED, payload: item}
   },
 }
 
@@ -46,6 +50,12 @@ export const reducer = (state = initialState, action) => {
           }
           return item
         }),
+      }
+    }
+    case types.REMOVE_COMPLETED: {
+      return {
+        ...state,
+        items: items.filter((item) => !item.completed)
       }
     }
     default: {

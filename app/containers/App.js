@@ -7,6 +7,7 @@ import { actionCreators } from '../redux/todoRedux'
 import Title from '../components/Title'
 import Input from '../components/Input'
 import List from '../components/List'
+import Footer from '../components/Footer'
 
 const styles = StyleSheet.create({
   container: {
@@ -44,6 +45,11 @@ class App extends Component {
     dispatch(actionCreators.toggleItemCompleted(index))
   }
 
+  removeCompleted = () => {
+    const {dispatch} = this.props
+    dispatch(actionCreators.removeCompleted())
+  }
+
   render() {
     const {items} = this.props
 
@@ -60,6 +66,8 @@ class App extends Component {
           onRemoveItem={this.removeItem}
           onToggleItemCompleted={this.toggleItemCompleted}
         />
+        <View style={styles.divider} />
+        <Footer onRemoveCompleted={this.removeCompleted} />
       </View>
     )
   }
