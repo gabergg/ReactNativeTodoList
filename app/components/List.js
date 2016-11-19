@@ -17,14 +17,11 @@ const styles = StyleSheet.create({
   },
   rightSection: {
     flexDirection: 'row',
-  },
-  removeWrapper: {
-    width: 28,
+    alignItems: 'center',
   },
   remove: {
-    position: 'absolute',
-    bottom: -4,
-    left: 5,
+    marginLeft: 10,
+    marginBottom: 2,
     color: '#CD5C5C',
     fontSize: 26,
   },
@@ -53,7 +50,7 @@ export default class List extends Component {
             isChecked={item.completed}
             onToggle={() => onToggleItemCompleted(i)}
           />
-          <TouchableOpacity style={styles.removeWrapper} onPress={() => onRemoveItem(i)}>
+          <TouchableOpacity onPress={() => onRemoveItem(i)}>
             <Text style={styles.remove}> &times; </Text>
           </TouchableOpacity>
         </View>
