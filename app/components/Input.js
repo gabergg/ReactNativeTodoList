@@ -1,7 +1,5 @@
 import React, { Component, PropTypes } from 'react'
-import { TextInput, View, StyleSheet } from 'react-native'
-import { connect } from 'react-redux'
-import { Actions } from 'react-native-router-flux'
+import { TextInput, StyleSheet } from 'react-native'
 
 const styles = StyleSheet.create({
   input: {
