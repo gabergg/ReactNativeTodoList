@@ -46,6 +46,7 @@ export default class Input extends Component {
         value={text}
         onChangeText={this.onChangeText}
         onSubmitEditing={this.onSubmitEditing}
+        blurOnSubmit={false}
       />
     )
   }
