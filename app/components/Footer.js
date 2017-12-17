@@ -1,29 +1,26 @@
 import React, { Component, PropTypes } from 'react'
-import { TouchableOpacity, Text, StyleSheet } from 'react-native'
-
-const styles = StyleSheet.create({
-  footer: {
-    paddingVertical: 15,
-    alignItems: 'center',
-  },
-  remove: {
-    color: '#CD5C5C',
-  },
-})
+import { View, TouchableOpacity, Text, StyleSheet } from 'react-native'
 
 export default class Footer extends Component {
-
-  static propTypes = {
-    onRemoveCompleted: PropTypes.func,
-  }
-
   render() {
-    const {onRemoveCompleted} = this.props
+    const {children} = this.props
+    const {onPressItem} = this.props
 
     return (
-      <TouchableOpacity style={styles.footer} onPress={onRemoveCompleted}>
-        <Text style={styles.remove}>Remove completed items</Text>
-      </TouchableOpacity>
+        <TouchableOpacity style={styles.footer} onPress={() => onPressItem()}>
+          <Text style={styles.text}>{children}</Text>
+        </TouchableOpacity>
     )
   }
 }
+
+const styles = StyleSheet.create({
+  footer: {
+    backgroundColor: 'white',
+    padding: 15,
+  },
+  text: {
+    textAlign: 'center',
+    color: 'red',
+  },
+})
